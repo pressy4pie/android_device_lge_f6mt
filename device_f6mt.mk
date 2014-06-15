@@ -20,7 +20,6 @@ PRODUCT_COPY_FILES += \
    #$(LOCAL_KERNEL):kernel
 
 $(call inherit-product, build/target/product/full.mk)
-$(call inherit-product, device/lge/f6mt/nfc.mk)
 
 #$(call inherit-product, hardware/qcom/msm8960/msm8960.mk)
 

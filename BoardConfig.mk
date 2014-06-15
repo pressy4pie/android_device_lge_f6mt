@@ -1,27 +1,31 @@
-# inherit from the proprietary version
--include vendor/lge/f6mt/BoardConfigVendor.mk
+#
+# Copyright (C) 2013 The Android Open-Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
-# Include path
-# LGE will hopefully get a newer kernel out one day, but till then to get msm video and audio going we need this
-TARGET_SPECIFIC_HEADER_PATH := device/lge/f6mt/include
-
-TARGET_ARCH := arm
-TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := msm8960
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := krait
 TARGET_CPU_SMP := true
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_CPU_VARIANT := krait
 
-# NFC
-BOARD_HAVE_NFC := true
-BOARD_NFC_HAL_SUFFIX := msm8960
+TARGET_NO_BOOTLOADER := true
 
-TARGET_BOOTLOADER_NAME := f6
-
-TARGET_PRODUCT := f6
+#TARGET_PREBUILT_KERNEL := device/lge/f6mt/kernel
+#LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+TARGET_KERNEL_CONFIG := f6_mpcs_tmo_defconfig
 
 #selinux permissive to try to get twrp booting
 BOARD_KERNEL_CMDLINE := androidboot.hardware=f6mt user_debug=31 vmalloc=308M selinux=permissive
@@ -29,35 +33,29 @@ BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
-#TARGET_PREBUILT_KERNEL := device/lge/f6mt/kernel
-#LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
+TARGET_NO_RADIOIMAGE := true
+TARGET_BOARD_PLATFORM := msm8930
+TARGET_BOOTLOADER_BOARD_NAME := f6mt
+TARGET_BOARD_INFO_FILE := device/lge/f6mt/board-info.txt
 
-TARGET_KERNEL_CONFIG := f6_mpcs_tmo_defconfig
-
-# Krait optimizations
-TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
-TARGET_USE_KRAIT_PLD_SET := true
-TARGET_KRAIT_BIONIC_PLDOFFS := 10
-TARGET_KRAIT_BIONIC_PLDTHRESH := 10
-TARGET_KRAIT_BIONIC_BBTHRESH := 64
-TARGET_KRAIT_BIONIC_PLDSIZE := 64
-
-
-# QCOM
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
 
-# QCOM enhanced A/V
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-
-# Use CAF media driver variant for 8960
-TARGET_QCOM_MEDIA_VARIANT := caf
-
-# Use retire fence from MDP driver
-TARGET_DISPLAY_USE_RETIRE_FENCE := true
-
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 BOARD_EGL_CFG := device/lge/f6mt/prebuilt/lib/egl/egl.cfg
+
+TARGET_USES_ION := true
+USE_OPENGL_RENDERER := true
+
+#audio
+TARGET_QCOM_AUDIO_VARIANT := caf
+BOARD_USES_ALSA_AUDIO := true
+AUDIO_FEATURE_DEEP_BUFFER_PRIMARY := true
+AUDIO_FEATURE_DYNAMIC_VOLUME_MIXER := true
+
+# bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -96,9 +94,5 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_NO_USB_STORAGE := true
 TW_DEFAULT_EXTERNAL_STORAGE := true
 
-
-
-
-
-
-
+# prop version
+-include vendor/moto/condor/BoardConfigVendor.mk
