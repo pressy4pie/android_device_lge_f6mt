@@ -11,17 +11,17 @@ $(call inherit-product-if-exists, vendor/lge/f6mt/f6mt-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/lge/f6mt/overlay
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	#LOCAL_KERNEL := $(LOCAL_PATH)/kernel
+	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
-	#LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
 PRODUCT_COPY_FILES += \
-   #$(LOCAL_KERNEL):kernel
+   $(LOCAL_KERNEL):kernel
 
 $(call inherit-product, build/target/product/full.mk)
 
-#$(call inherit-product, hardware/qcom/msm8960/msm8960.mk)
+$(call inherit-product, hardware/qcom/msm8960/msm8960.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 

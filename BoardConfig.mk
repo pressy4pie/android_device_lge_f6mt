@@ -23,9 +23,9 @@ TARGET_CPU_VARIANT := krait
 
 TARGET_NO_BOOTLOADER := true
 
-#TARGET_PREBUILT_KERNEL := device/lge/f6mt/kernel
-#LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-TARGET_KERNEL_CONFIG := f6_mpcs_tmo_defconfig
+TARGET_PREBUILT_KERNEL := device/lge/f6mt/kernel
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+#TARGET_KERNEL_CONFIG := f6_mpcs_tmo_defconfig
 
 #selinux permissive to try to get twrp booting
 BOARD_KERNEL_CMDLINE := androidboot.hardware=f6mt user_debug=31 vmalloc=308M selinux=permissive
@@ -35,7 +35,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
 TARGET_NO_RADIOIMAGE := true
-TARGET_BOARD_PLATFORM := msm8930
+TARGET_BOARD_PLATFORM := msm8960
 TARGET_BOOTLOADER_BOARD_NAME := f6mt
 TARGET_BOARD_INFO_FILE := device/lge/f6mt/board-info.txt
 

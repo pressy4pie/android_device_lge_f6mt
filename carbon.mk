@@ -16,7 +16,7 @@ TARGET_SCREEN_WIDTH := 768
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := f6mt
-PRODUCT_NAME := cm_f6mt
+PRODUCT_NAME := carbon_f6mt
 PRODUCT_BRAND := MetroPCS
 PRODUCT_MODEL := LG-MS500
 PRODUCT_MANUFACTURER := LGE
