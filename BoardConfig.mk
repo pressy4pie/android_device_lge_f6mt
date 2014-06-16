@@ -25,7 +25,7 @@ TARGET_NO_BOOTLOADER := true
 
 TARGET_PREBUILT_KERNEL := device/lge/f6mt/kernel
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-#TARGET_KERNEL_CONFIG := f6_mpcs_tmo_defconfig
+TARGET_KERNEL_CONFIG := f6_mpcs_tmo_defconfig
 
 #selinux permissive to try to get twrp booting
 BOARD_KERNEL_CMDLINE := androidboot.hardware=f6mt user_debug=31 vmalloc=308M selinux=permissive
@@ -95,4 +95,29 @@ TW_NO_USB_STORAGE := true
 TW_DEFAULT_EXTERNAL_STORAGE := true
 
 # prop version
--include vendor/moto/condor/BoardConfigVendor.mk
+-include vendor/lge/f6mt/BoardConfigVendor.mk
+
+#enable sepolicy
+BOARD_SEPOLICY_DIRS += \
+        device/lge/f6mt/sepolicy
+
+BOARD_SEPOLICY_UNION := \
+       app.te \
+       bluetooth.te \
+       device.te \
+       domain.te \
+       drmserver.te \
+       file.te \
+       file_contexts \
+       hci_init.te \
+       init_shell.te \
+       keystore.te \
+       mediaserver.te \
+       kickstart.te \
+       nfc.te \
+       rild.te \
+       surfaceflinger.te \
+       system.te \
+       ueventd.te \
+       wpa.te
+
