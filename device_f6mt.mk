@@ -10,14 +10,6 @@ $(call inherit-product-if-exists, vendor/lge/f6mt/f6mt-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/lge/f6mt/overlay
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	#LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-else
-	#LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-#PRODUCT_COPY_FILES += \
-   #$(LOCAL_KERNEL):kernel
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -36,8 +28,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
-PRODUCT_COPY_FILES += \
-    device/lge/f6mt/twrp.fstab:recovery/root/etc/twrp.fsab
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
