@@ -1,5 +1,3 @@
-
-
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -10,7 +8,7 @@ TARGET_CPU_VARIANT := krait
 TARGET_NO_BOOTLOADER := true
 
 TARGET_KERNEL_CONFIG := f6_mpcs_tmo_us_defconfig
-TARGET_KERNEL_SOURCE := kernel/f6
+TARGET_KERNEL_SOURCE := kernel/lge/f6
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=f6mt user_debug=31 vmalloc=308M selinux=permissive
 BOARD_KERNEL_BASE := 0x80200000
@@ -26,7 +24,7 @@ TARGET_BOARD_INFO_FILE := device/lge/f6mt/board-info.txt
 BOARD_USES_QCOM_HARDWARE := true
 
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
-BOARD_EGL_CFG := device/lge/f6mt/prebuilt/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/lge/f6mt/prebuilt/vendor/lib/egl/egl.cfg
 
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true

@@ -83,50 +83,8 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 PRODUCT_PACKAGES += \
-    gralloc.msm8960 \
-    libgenlock \
-    lights.msm8960 \
-    hwcomposer.msm8960 \
-    memtrack.msm8960
-
-PRODUCT_PACKAGES += \
-    audio.msm8960 \
-    audio_policy.msm8960
-
-PRODUCT_PACKAGES += \
-    audio.primary.msm8960 \
-    audio.a2dp.default \
-    audio.usb.default \
-    audio.r_submix.default \
-    libaudio-resampler
-
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libstagefrighthw \
-    libOmxCore \
-    libmm-omxcore \
-    libOmxVdec \
-    libOmxVdecHevc \
-    libOmxVenc
-
-PRODUCT_PACKAGES += \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc
-
-PRODUCT_PACKAGES += \
-    wlan_module_symlink \
-    wlan_persist_symlink \
-    wcnss_service
-
-PRODUCT_PACKAGES += \
-    libion
-
-PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
-
 
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
@@ -148,6 +106,32 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/xtwifi.conf:system/etc/xtwifi.conf \
     $(LOCAL_PATH)/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
     $(LOCAL_PATH)/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/firmware/a330_pfp.fw:system/etc/a330_pfp.fw \
+    $(LOCAL_PATH)/prebuilt/etc/firmware/a330_pm4.fw:system/etc/a330_pm4.fw 
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/egl/eglsubAndroid.so:system/egl/eglsubAndroid.so \
+    $(LOCAL_PATH)/prebuilt/egl/libEGL_adreno.so:system/egl/libEGL_adreno.so \
+    $(LOCAL_PATH)/prebuilt/egl/libGLESv1_CM_adreno.so:system/egl/libGLESv1_CM_adreno.so \
+    $(LOCAL_PATH)/prebuilt/egl/libGLESv2_adreno.so:system/egl/libGLESv2_adreno.so \
+    $(LOCAL_PATH)/prebuilt/egl/libplayback_adreno.so:system/egl/libplayback_adreno.so \
+    $(LOCAL_PATH)/prebuilt/egl/libq3dtools_adreno.so:system/egl/libq3dtools_adreno.so 
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/lib/libadreno_utils.so:system/vendor/lib/libadreno_utils.so \
+    $(LOCAL_PATH)/prebuilt/lib/libc2d30-a3xx.so:system/lib/libc2d30-a3xx.so \
+    $(LOCAL_PATH)/prebuilt/lib/libC2D2.so:system/lib/libC2D2.so \
+    $(LOCAL_PATH)/prebuilt/lib/libCB.so:system/lib/libCB.so \
+    $(LOCAL_PATH)/prebuilt/lib/libgsl.so:system/lib/libgsl.so \
+    $(LOCAL_PATH)/prebuilt/lib/libllvm-qcom.so:system/lib/libllvm-qcom.so \
+    $(LOCAL_PATH)/prebuilt/lib/libOpenCL.so:system/lib/libOpenCL.so \
+    $(LOCAL_PATH)/prebuilt/lib/librs_adreno.so:system/lib/librs_adreno.so \
+    $(LOCAL_PATH)/prebuilt/lib/librs_adreno_sha1.so:system/lib/librs_adreno_sha1.so \
+    $(LOCAL_PATH)/prebuilt/lib/libRSDriver_adreno.so:system/lib/libRSDriver_adreno.so \
+    $(LOCAL_PATH)/prebuilt/lib/libsc-a3xx.so:system/lib/libsc-a3xx.so 
+
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
